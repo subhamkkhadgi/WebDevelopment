@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Sphere</title>
+    <link rel="stylesheet" href="self.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="./photo/mindsphere.png" alt="Mind Sphere Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html" class="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Services</a>
+                    <ul class="dropdown-content">
+                        <li><a href="./informationhub.html">Information Hub</a></li>
+                        <li><a href="#">Self Assessment</a></li>
+                        <li><a href="./peersupport.html">Anonymous Peer Support</a></li>
+                    </ul>
+                </li>
+                <li><a href="./support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li><a href="#">Self Assessment<br></a></li>
+                <li class="active" aria-current="page">Discover Yourself: Gain Insights, Grow Stronger.</li>
+            </ol>
+        </nav>
+
+        <!-- Cards Section -->
+        <section class="card-container">
+            <div class="card" id="anxiety-card">
+                <h3>Anxiety</h3>
+                <p>Anxiety can be overwhelming and affect daily life. Understand your triggers and manage them effectively.</p>
+                <a href="#" class="take-test-button" onclick="openModal('anxiety-modal')">Take Test</a>
+            </div>
+            <div class="card" id="depression-card">
+                <h3>Depression</h3>
+                <p>Depression can cause prolonged sadness and a loss of interest in daily activities. Learn more about your condition.</p>
+                <a href="#" class="take-test-button" onclick="openModal('depression-modal')">Take Test</a>
+            </div>
+            <div class="card" id="ocd-card">
+                <h3>OCD</h3>
+                <p>Obsessive-Compulsive Disorder involves unwanted thoughts and repetitive behaviors. Discover how it affects you.</p>
+                <a href="#" class="take-test-button" onclick="openModal('ocd-modal')">Take Test</a>
+            </div>
+            <div class="card" id="bipolar-card">
+                <h3>Bipolar Disorder</h3>
+                <p>Bipolar Disorder involves extreme mood swings. Understand the highs and lows of this condition.</p>
+                <a href="#" class="take-test-button" onclick="openModal('bipolar-modal')">Take Test</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals for Each Test -->
+
+    <!-- Anxiety Modal -->
+    <div id="anxiety-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('anxiety-modal')">&times;</span>
+            <h3>Anxiety Test</h3>
+            <form id="anxiety-form" onsubmit="showResult(event, 'anxiety-result');">
+                <p>1. Do you often feel nervous or anxious in social situations?</p>
+                <label><input type="radio" name="q1" value="yes"> Yes</label>
+                <label><input type="radio" name="q1" value="no"> No</label>
+                
+                <p>2. Do you experience rapid heartbeats when you're stressed?</p>
+                <label><input type="radio" name="q2" value="yes"> Yes</label>
+                <label><input type="radio" name="q2" value="no"> No</label>
+                
+                <p>3. Do you often avoid situations that make you feel anxious?</p>
+                <label><input type="radio" name="q3" value="yes"> Yes</label>
+                <label><input type="radio" name="q3" value="no"> No</label>
+                
+                <p>4. Do you find it difficult to control your worry?</p>
+                <label><input type="radio" name="q4" value="yes"> Yes</label>
+                <label><input type="radio" name="q4" value="no"> No</label>
+                
+                <p>5. Do you have trouble sleeping because of anxiety?</p>
+                <label><input type="radio" name="q5" value="yes"> Yes</label>
+                <label><input type="radio" name="q5" value="no"> No</label>
+                
+                <p>6. Do you feel like you have no control over your emotions during stressful situations?</p>
+                <label><input type="radio" name="q6" value="yes"> Yes</label>
+                <label><input type="radio" name="q6" value="no"> No</label>
+                
+                <p>7. Do you feel tense or on edge most of the time?</p>
+                <label><input type="radio" name="q7" value="yes"> Yes</label>
+                <label><input type="radio" name="q7" value="no"> No</label>
+                
+                <p>8. Do you frequently have feelings of panic or dread?</p>
+                <label><input type="radio" name="q8" value="yes"> Yes</label>
+                <label><input type="radio" name="q8" value="no"> No</label>
+                
+                <p>9. Do you often feel physically exhausted after being anxious?</p>
+                <label><input type="radio" name="q9" value="yes"> Yes</label>
+                <label><input type="radio" name="q9" value="no"> No</label>
+                
+                <p>10. Do you experience stomach issues related to anxiety?</p>
+                <label><input type="radio" name="q10" value="yes"> Yes</label>
+                <label><input type="radio" name="q10" value="no"> No</label>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <div id="anxiety-result" style="display:none;">
+                <h4>Test Result:</h4>
+                <p>Your responses indicate that you may have anxiety. It’s advisable to seek professional help.</p>
+                <!-- Image included in the result -->
+      <img id="result-image" src="./photo/anxiety.png" alt="Test Result Image">
+                <button onclick="closeModal('anxiety-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Depression Modal -->
+    <div id="depression-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('depression-modal')">&times;</span>
+            <h3>Depression Test</h3>
+            <form id="depression-form" onsubmit="showResult(event, 'depression-result');">
+                <p>1. Do you experience prolonged sadness for weeks or months?</p>
+                <label><input type="radio" name="q1" value="yes"> Yes</label>
+                <label><input type="radio" name="q1" value="no"> No</label>
+                
+                <p>2. Do you feel a loss of interest in activities you once enjoyed?</p>
+                <label><input type="radio" name="q2" value="yes"> Yes</label>
+                <label><input type="radio" name="q2" value="no"> No</label>
+                
+                <p>3. Do you have trouble concentrating or making decisions?</p>
+                <label><input type="radio" name="q3" value="yes"> Yes</label>
+                <label><input type="radio" name="q3" value="no"> No</label>
+                
+                <p>4. Do you experience fatigue or lack of energy?</p>
+                <label><input type="radio" name="q4" value="yes"> Yes</label>
+                <label><input type="radio" name="q4" value="no"> No</label>
+                
+                <p>5. Do you have trouble sleeping or sleeping too much?</p>
+                <label><input type="radio" name="q5" value="yes"> Yes</label>
+                <label><input type="radio" name="q5" value="no"> No</label>
+                
+                <p>6. Do you often feel worthless or guilty?</p>
+                <label><input type="radio" name="q6" value="yes"> Yes</label>
+                <label><input type="radio" name="q6" value="no"> No</label>
+                
+                <p>7. Do you feel like your life has no purpose?</p>
+                <label><input type="radio" name="q7" value="yes"> Yes</label>
+                <label><input type="radio" name="q7" value="no"> No</label>
+                
+                <p>8. Have you experienced weight loss or gain recently?</p>
+                <label><input type="radio" name="q8" value="yes"> Yes</label>
+                <label><input type="radio" name="q8" value="no"> No</label>
+                
+                <p>9. Do you have thoughts of self-harm or suicide?</p>
+                <label><input type="radio" name="q9" value="yes"> Yes</label>
+                <label><input type="radio" name="q9" value="no"> No</label>
+                
+                <p>10. Do you feel like you can’t see a way forward in your life?</p>
+                <label><input type="radio" name="q10" value="yes"> Yes</label>
+                <label><input type="radio" name="q10" value="no"> No</label>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <div id="depression-result" style="display:none;">
+                <h4>Test Result:</h4>
+                <p>Your responses indicate that you may be experiencing depression. Consider reaching out for support.</p>
+                <!-- Image included in the result -->
+      <img id="result-image" src="./photo/depression.jpg" alt="Test Result Image" style="max-width: 100%; height: auto;">
+                <button onclick="closeModal('depression-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- OCD Modal -->
+    <div id="ocd-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ocd-modal')">&times;</span>
+            <h3>OCD Test</h3>
+            <form id="ocd-form" onsubmit="showResult(event, 'ocd-result');">
+                <p>1. Do you have repetitive thoughts or urges that you can’t control?</p>
+                <label><input type="radio" name="q1" value="yes"> Yes</label>
+                <label><input type="radio" name="q1" value="no"> No</label>
+                
+                <p>2. Do you perform certain behaviors or rituals to relieve anxiety?</p>
+                <label><input type="radio" name="q2" value="yes"> Yes</label>
+                <label><input type="radio" name="q2" value="no"> No</label>
+                
+                <p>3. Do you find that your compulsions interfere with daily life?</p>
+                <label><input type="radio" name="q3" value="yes"> Yes</label>
+                <label><input type="radio" name="q3" value="no"> No</label>
+                
+                <p>4. Do you often think about the same things repeatedly?</p>
+                <label><input type="radio" name="q4" value="yes"> Yes</label>
+                <label><input type="radio" name="q4" value="no"> No</label>
+                
+                <p>5. Do you feel driven to perform certain actions even if you don’t want to?</p>
+                <label><input type="radio" name="q5" value="yes"> Yes</label>
+                <label><input type="radio" name="q5" value="no"> No</label>
+                
+                <p>6. Do you often worry that something terrible will happen if you don’t do something?</p>
+                <label><input type="radio" name="q6" value="yes"> Yes</label>
+                <label><input type="radio" name="q6" value="no"> No</label>
+                
+                <p>7. Do you spend a lot of time thinking about your compulsions?</p>
+                <label><input type="radio" name="q7" value="yes"> Yes</label>
+                <label><input type="radio" name="q7" value="no"> No</label>
+                
+                <p>8. Do you often feel anxious if you can’t perform your rituals?</p>
+                <label><input type="radio" name="q8" value="yes"> Yes</label>
+                <label><input type="radio" name="q8" value="no"> No</label>
+                
+                <p>9. Do you find it hard to concentrate because of your thoughts?</p>
+                <label><input type="radio" name="q9" value="yes"> Yes</label>
+                <label><input type="radio" name="q9" value="no"> No</label>
+                
+                <p>10. Do you often feel embarrassed about your thoughts or behaviors?</p>
+                <label><input type="radio" name="q10" value="yes"> Yes</label>
+                <label><input type="radio" name="q10" value="no"> No</label>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <div id="ocd-result" style="display:none;">
+                <h4>Test Result:</h4>
+                <p>Your responses suggest that you may have OCD. It may be beneficial to seek professional guidance.</p>
+                <!-- Image included in the result -->
+      <img id="result-image" src="./photo/ocd.png" alt="Test Result Image" style="max-width: 100%; height: auto;">
+                <button onclick="closeModal('ocd-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bipolar Modal -->
+    <div id="bipolar-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bipolar-modal')">&times;</span>
+            <h3>Bipolar Disorder Test</h3>
+            <form id="bipolar-form" onsubmit="showResult(event, 'bipolar-result');">
+                <p>1. Do you experience extreme mood swings?</p>
+                <label><input type="radio" name="q1" value="yes"> Yes</label>
+                <label><input type="radio" name="q1" value="no"> No</label>
+                
+                <p>2. Do you feel very energetic or euphoric for long periods?</p>
+                <label><input type="radio" name="q2" value="yes"> Yes</label>
+                <label><input type="radio" name="q2" value="no"> No</label>
+                
+                <p>3. Do you have periods of deep sadness or hopelessness?</p>
+                <label><input type="radio" name="q3" value="yes"> Yes</label>
+                <label><input type="radio" name="q3" value="no"> No</label>
+                
+                <p>4. Do you experience changes in sleep patterns?</p>
+                <label><input type="radio" name="q4" value="yes"> Yes</label>
+                <label><input type="radio" name="q4" value="no"> No</label>
+                
+                <p>5. Do you engage in risky behaviors during your high periods?</p>
+                <label><input type="radio" name="q5" value="yes"> Yes</label>
+                <label><input type="radio" name="q5" value="no"> No</label>
+                
+                <p>6. Do you feel like you have more energy than usual during manic phases?</p>
+                <label><input type="radio" name="q6" value="yes"> Yes</label>
+                <label><input type="radio" name="q6" value="no"> No</label>
+                
+                <p>7. Do you find it hard to maintain relationships during mood swings?</p>
+                <label><input type="radio" name="q7" value="yes"> Yes</label>
+                <label><input type="radio" name="q7" value="no"> No</label>
+                
+                <p>8. Have you noticed changes in your appetite during mood changes?</p>
+                <label><input type="radio" name="q8" value="yes"> Yes</label>
+                <label><input type="radio" name="q8" value="no"> No</label>
+                
+                <p>9. Do you have periods where you feel irritable or angry?</p>
+                <label><input type="radio" name="q9" value="yes"> Yes</label>
+                <label><input type="radio" name="q9" value="no"> No</label>
+                
+                <p>10. Do you often feel disconnected from reality during your highs or lows?</p>
+                <label><input type="radio" name="q10" value="yes"> Yes</label>
+                <label><input type="radio" name="q10" value="no"> No</label>
+                
+                <button type="submit">Submit</button>
+            </form>
+            <div id="bipolar-result" style="display:none;">
+                <h4>Test Result:</h4>
+                <p>Your answers suggest that you may experience symptoms of bipolar disorder. It's important to consult with a mental health professional.</p>
+                <!-- Image included in the result -->
+      <img id="result-image" src="./photo/bpd.png" alt="Test Result Image" style="max-width: 100%; height: auto;">
+                <button onclick="closeModal('bipolar-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="self.js"></script>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

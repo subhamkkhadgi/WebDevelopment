@@ -1,0 +1,436 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Friendly and clean */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f8ff; /* Soft muted blue for relaxation */
+    color: #333333; /* Dark gray for easy readability */
+    line-height: 1.6;
+
+    background-image: url('./photo/ground.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) for opacity */
+    z-index: -1;
+}
+
+/* Header Section */
+header {
+    display: flex;
+    justify-content: center; /* Keep logo on the left and nav centered */
+    align-items: center;
+    padding: 20px;
+    background-color: #b3d4a8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Subtle zoom on hover */
+}
+
+nav {
+    flex-grow: 1; /* Allow nav to grow and take available space */
+    display: flex;
+    justify-content: center; /* Center the nav links */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Keep the list items in a row */
+    gap: 25px; /* Space between items */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px; /* Adjust to give space for the line */
+    transition: color 0.3s ease-in-out;
+}
+
+nav a.active {
+    color: #48bb78; /* Change color for the active link */
+    font-weight: bold; /* Make the active link bold */
+    border-bottom: 2px solid #48bb78; /* Add an underline effect */
+}
+
+nav a:hover {
+    color: #6b7280; /* Slight darkening on hover */
+}
+
+/* Line Animation on Hover */
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Position the line at the bottom of the link */
+    width: 0; /* Start with zero width */
+    height: 2px; /* Line height */
+    background-color: #48bb78; /* Line color */
+    transition: width 0.4s ease-in-out; /* Smooth transition for hover in/out */
+}
+
+nav a:hover::after {
+    width: 100%; /* Expand the line to full width on hover */
+}
+
+/* Updated Dropdown Menu Styles */
+nav ul li .dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Position directly below the menu */
+    left: 0; /* Align with the left side */
+    background-color: #e6eaf8; /* Light lavender background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Slight shadow for a modern look */
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade and slide-in */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 0; /* Space inside the dropdown */
+    white-space: nowrap; /* Prevent line breaks in dropdown items */
+}
+
+/* Show dropdown when parent li is hovered */
+nav ul li:hover .dropdown-content {
+    display: block; /* Show dropdown */
+    opacity: 1;
+    animation: slideDown 0.4s ease forwards; /* Apply slide-down animation */
+}
+
+/* Dropdown animation */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dropdown items */
+.dropdown-content li {
+    padding: 10px 20px; /* Add padding for more clickable area */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content li a {
+    text-decoration: none;
+    color: #333333;
+    display: block; /* Make the whole area clickable */
+    font-size: 16px;
+    padding: 10px 0; /* Ensure padding around the text */
+}
+
+.dropdown-content li:hover {
+    background-color: #ffd1a9; /* Muted peach hover effect */
+}
+
+.dropdown-content li:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.dropdown-content li:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Main Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between; /* Space between elements */
+    align-items: center;
+    padding: 80px;
+    
+    animation: fadeIn 2s ease-in-out;
+    position: relative; /* Relative positioning for absolute tagline */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #4a5568;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.get-started {
+    margin-top: 15%;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    background-color: #48bb78; /* Relaxing green */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3); /* Gentle shadow */
+}
+
+.get-started:hover {
+    background-color: #38a169; /* Darker green on hover */
+    transform: scale(1.05); /* Subtle zoom */
+}
+
+.picture {
+    flex: 0 0 350px; /* Set a specific width (adjust as needed) */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the container */
+}
+
+.picture img {
+    width: 100%; /* Make the image take full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the image */
+    border-radius: 50px;
+}
+
+.picture:hover img {
+    transform: scale(1.05); /* Zoom in on hover */
+}
+
+/* Tagline Styles */
+.tagline {
+    position: absolute; /* Position the tagline absolutely */
+    top: 50%; /* Center the tagline vertically */
+    left: 50%; /* Center the tagline horizontally */
+    transform: translate(-50%, -50%); /* Offset by half its width and height to truly center */
+    text-align: center;
+    margin: 20px 0; /* Adjusts spacing above and below the tagline */
+    animation: fadeBounce 4s ease-in-out infinite; /* Apply the fade and bounce animation */
+}
+
+.tagline h2 {
+    font-size: 24px; /* Adjust the size as needed */
+    color: white; /* Ensure the text color matches your design */
+    font-weight: 500; /* Adjusts the font weight */
+    transition: color 0.5s ease; /* Smooth transition for color changes */
+}
+
+/* Add this class to apply the color change effect */
+.tagline h2:hover {
+    color: #48bb78; /* Change to relaxing green on hover */
+}
+
+/* Keyframes for bounce animation */
+@keyframes fadeBounce {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+/* Scroll Animations for "Why Us" Section */
+.why-us {
+    margin-top: 40%;
+    text-align: center;
+    opacity: 0;
+    animation: slideIn 2s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.why-us a {
+    font-size: 20px;
+    text-decoration: underline;
+    color: #48bb78;
+    transition: color 0.3s ease-in-out;
+}
+
+.why-us a:hover {
+    color: #38a169; /* Darker green on hover */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.scrollable-content {
+    position: relative;
+    margin: 40px 0;
+    text-align: center;
+    padding: 20px 0;
+    background: transparent;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.scroll-container {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 2s ease-out;
+    background: transparent;
+}
+
+.scroll-item {
+    min-width: 300px;
+    margin: 0 10px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 1s ease, box-shadow 0.3s ease, border 0.3s ease;
+    animation: scaleUp 0.6s ease-in-out, bounce 2s infinite, glow 3s ease-in-out infinite;
+    background: transparent;
+    color: white; /* Changed text color to white */
+}
+
+
+
+.scroll-item:hover {
+    transform: scale(1.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #38a169;
+}
+
+.scroll-item:nth-child(2) {
+    min-width: 350px;
+    transform: scale(1.1);
+    border: none;
+}
+.scroll-item:nth-child(2):hover{
+    transform: scale(1.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    border: 2px solid #38a169;
+}
+
+
+
+.scroll-item img {
+    width: 60%;
+    height: auto;
+    border-radius: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-item img:hover {
+    opacity: 2;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #48bb78;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-btn:hover {
+    background-color: #38a169;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-btn.left {
+    left: 10px;
+}
+
+.scroll-btn.right {
+    right: 10px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(72, 187, 120, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(72, 187, 120, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(72, 187, 120, 0.4);
+    }
+}
+
+
+
+
+
+ 
+    

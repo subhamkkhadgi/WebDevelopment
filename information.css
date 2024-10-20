@@ -1,0 +1,430 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif; /* Friendly and clean */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f0f8ff; /* Soft muted blue for relaxation */
+  color: #333333; /* Dark gray for easy readability */
+  line-height: 1.6;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: center; /* Keep logo on the left and nav centered */
+  align-items: center;
+  padding: 20px;
+  background-color: #b3d4a8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(1.1); /* Subtle zoom on hover */
+}
+
+nav {
+  flex-grow: 1; /* Allow nav to grow and take available space */
+  display: flex;
+  justify-content: center; /* Center the nav links */
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Keep the list items in a row */
+  gap: 25px; /* Space between items */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  justify-content: center;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px; /* Adjust to give space for the line */
+  transition: color 0.3s ease-in-out;
+}
+
+nav a.active {
+  color: #48bb78; /* Change color for the active link */
+  font-weight: bold; /* Make the active link bold */
+  border-bottom: 2px solid #48bb78; /* Add an underline effect */
+}
+
+nav a:hover {
+  color: #6b7280; /* Slight darkening on hover */
+}
+
+/* Line Animation on Hover */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Position the line at the bottom of the link */
+  width: 0; /* Start with zero width */
+  height: 2px; /* Line height */
+  background-color: #48bb78; /* Line color */
+  transition: width 0.4s ease-in-out; /* Smooth transition for hover in/out */
+}
+
+nav a:hover::after {
+  width: 100%; /* Expand the line to full width on hover */
+}
+
+/* Updated Dropdown Menu Styles */
+nav ul li .dropdown-content {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 100%; /* Position directly below the menu */
+  left: 0; /* Align with the left side */
+  background-color: #e6eaf8; /* Light lavender background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Slight shadow for a modern look */
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-10px); /* Start slightly above */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade and slide-in */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 0; /* Space inside the dropdown */
+  white-space: nowrap; /* Prevent line breaks in dropdown items */
+}
+
+/* Show dropdown when parent li is hovered */
+nav ul li:hover .dropdown-content {
+  display: block; /* Show dropdown */
+  opacity: 1;
+  animation: slideDown 0.4s ease forwards; /* Apply slide-down animation */
+}
+
+/* Dropdown animation */
+@keyframes slideDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Dropdown items */
+.dropdown-content li {
+  padding: 10px 20px; /* Add padding for more clickable area */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content li a {
+  text-decoration: none;
+  color: #333333;
+  display: block; /* Make the whole area clickable */
+  font-size: 16px;
+  padding: 10px 0; /* Ensure padding around the text */
+}
+
+.dropdown-content li:hover {
+  background-color: #ffd1a9; /* Muted peach hover effect */
+}
+
+.dropdown-content li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-content li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 10px 0;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.breadcrumb li {
+  margin-right: 10px;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #38a169; /* Teal color */
+}
+
+.breadcrumb li.active {
+  color: #333333; /* Darker color for the active breadcrumb */
+  font-weight: bold;
+}
+
+/* yo bhanda tala matra edit garne*/
+
+.resources {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header styles with animation */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  animation: fadeInDown 1s ease-out;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+h2 {
+  color: #34495e;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-size: 2.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 15px;
+  animation: fadeInLeft 1s ease-out;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+/* Section-specific styles */
+.resources h2:nth-of-type(1) { color: #27ae60; } /* Articles */
+.resources h2:nth-of-type(2) { color: #e67e22; } /* Videos */
+.resources h2:nth-of-type(3) { color: #9b59b6; } /* Recommended Books */
+
+/* Add a subtle background to each section */
+.resources > div {
+  padding: 40px 20px;
+  margin: -20px -20px 40px -20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+}
+
+/* Card container styles */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  perspective: 1000px;
+  margin-top: 40px;
+}
+
+/* Enhanced card styles with hover effect and animation */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  transition: top 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-25px) scale(1.1); /* Increased uplift and scale for more impact */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Deeper shadow to highlight the hover effect */
+}
+
+.card:hover::before {
+  top: 0;
+}
+
+.card h3 {
+  color: #3498db;
+  margin-top: 0;
+  font-size: 1.4em;
+}
+
+.card p {
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+/* Enhanced link styles with hover and click effects */
+.card a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  padding: 8px 15px;
+  border-radius: 5px;
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.card a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(231, 76, 60, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.card a:hover {
+  color: #c0392b;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.card a:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.card a:active {
+  transform: scale(0.95);
+}
+
+/* Animation keyframes */
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes ripple {
+  to {
+      transform: translate(-50%, -50%) scale(10);
+      opacity: 0;
+  }
+}
+
+/* Apply ripple effect on click */
+.card a.clicked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(231, 76, 60, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: ripple 0.6s linear;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+      font-size: 2.5em;
+  }
+  h2 {
+      font-size: 2.2em;
+  }
+  .card-container {
+      grid-template-columns: 1fr;
+  }
+  .card {
+      animation: fadeInRight 0.5s ease-out;
+  }
+  @keyframes fadeInRight {
+      from {
+          opacity: 0;
+          transform: translateX(30px);
+      }
+      to {
+          opacity: 1;
+          transform: translateX(0);
+      }
+  }
+}
+
+
+/* ... (keep the rest of the previous CSS) ... */
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #4a5568; /* Dark gray for footer text */
+  font-size: 0.9em; /* Smaller footer text */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px); /* Start slightly below */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateY(0); /* Move to original position */
+    opacity: 1; /* Fully visible */
+  }
+}

@@ -1,0 +1,124 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Friendly and clean */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f8ff; /* Soft muted blue for relaxation */
+    color: #333333; /* Dark gray for easy readability */
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height for vertical centering */
+    text-align: center;
+    background-color: #e6eaf8; /* Soft lavender for serenity */
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    font-size: 48px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    color: #4a5568;
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.get-started {
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 25px;
+    border: none;
+    background-color: #48bb78; /* Relaxing green */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3); /* Gentle shadow */
+}
+
+.get-started:hover {
+    background-color: #38a169; /* Darker green on hover */
+    transform: scale(1.05); /* Subtle zoom */
+}
+
+/* Container for forms */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh; /* Full height for vertical centering */
+}
+
+/* Form Container */
+.form-container {
+    position: absolute; /* Stack forms on top of each other */
+    width: 400px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.form-container.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Form Styles */
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #48bb78; /* Relaxing green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #38a169; /* Darker green on hover */
+}
+
+span {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsive Layout */
+@media (max-width: 480px) {
+    .form-container {
+        width: 90%; /* Full width on smaller screens */
+    }
+}

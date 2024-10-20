@@ -1,0 +1,269 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif; /* Friendly and clean */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f0f8ff; /* Soft muted blue for relaxation */
+  color: #333333; /* Dark gray for easy readability */
+  line-height: 1.6;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: center; /* Keep logo on the left and nav centered */
+  align-items: center;
+  padding: 20px;
+  background-color: #b3d4a8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(1.1); /* Subtle zoom on hover */
+}
+
+nav {
+  flex-grow: 1; /* Allow nav to grow and take available space */
+  display: flex;
+  justify-content: center; /* Center the nav links */
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Keep the list items in a row */
+  gap: 25px; /* Space between items */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  justify-content: center;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px; /* Adjust to give space for the line */
+  transition: color 0.3s ease-in-out;
+}
+
+nav a.active {
+  color: #48bb78; /* Change color for the active link */
+  font-weight: bold; /* Make the active link bold */
+  border-bottom: 2px solid #48bb78; /* Add an underline effect */
+}
+
+nav a:hover {
+  color: #6b7280; /* Slight darkening on hover */
+}
+
+/* Line Animation on Hover */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Position the line at the bottom of the link */
+  width: 0; /* Start with zero width */
+  height: 2px; /* Line height */
+  background-color: #48bb78; /* Line color */
+  transition: width 0.4s ease-in-out; /* Smooth transition for hover in/out */
+}
+
+nav a:hover::after {
+  width: 100%; /* Expand the line to full width on hover */
+}
+
+/* Updated Dropdown Menu Styles */
+nav ul li .dropdown-content {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 100%; /* Position directly below the menu */
+  left: 0; /* Align with the left side */
+  background-color: #e6eaf8; /* Light lavender background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Slight shadow for a modern look */
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-10px); /* Start slightly above */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade and slide-in */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 0; /* Space inside the dropdown */
+  white-space: nowrap; /* Prevent line breaks in dropdown items */
+}
+
+/* Show dropdown when parent li is hovered */
+nav ul li:hover .dropdown-content {
+  display: block; /* Show dropdown */
+  opacity: 1;
+  animation: slideDown 0.4s ease forwards; /* Apply slide-down animation */
+}
+
+/* Dropdown animation */
+@keyframes slideDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Dropdown items */
+.dropdown-content li {
+  padding: 10px 20px; /* Add padding for more clickable area */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content li a {
+  text-decoration: none;
+  color: #333333;
+  display: block; /* Make the whole area clickable */
+  font-size: 16px;
+  padding: 10px 0; /* Ensure padding around the text */
+}
+
+.dropdown-content li:hover {
+  background-color: #ffd1a9; /* Muted peach hover effect */
+}
+
+.dropdown-content li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-content li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* Main Section Styles */
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto; /* Center the main content */
+  animation: fadeIn 0.5s ease-in; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Slightly lift the main section */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
+}
+
+.support-intro,
+.support-tips,
+.support-contact {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Slightly more prominent shadow */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect for Support Sections */
+.support-intro:hover,
+.support-tips:hover,
+.support-contact:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+  background-color: #f0f8ff; /* Soft muted blue background on hover */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Highlight Heading Styles */
+.highlight-heading {
+  font-size: 24px; /* Increase font size */
+  font-weight: bold; /* Make the text bold */
+  color: #48bb78; /* Use a distinct color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  margin-bottom: 10px; /* Space below the heading */
+  position: relative; /* Allow positioning for decorative effects */
+}
+
+/* Decorative Underline Animation */
+.highlight-heading::after {
+  content: '';
+  display: block; /* Create a block element */
+  width: 100%; /* Full width */
+  height: 3px; /* Height of the underline */
+  background-color: #ffd1a9; /* Color for the underline */
+  position: absolute; /* Position it below the heading */
+  bottom: -5px; /* Move it below the text */
+  left: 0; /* Align to the left */
+  transform: scaleX(0); /* Start with no width */
+  transition: transform 0.3s ease; /* Smooth transition for the underline */
+}
+
+.highlight-heading:hover::after {
+  transform: scaleX(1); /* Expand underline on hover */
+}
+
+/* Submit Button Animation */
+button {
+  background-color: #48bb78; /* Button color */
+  color: #ffffff; /* Button text color */
+  padding: 10px 15px; /* Button padding */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Transition for animations */
+}
+
+button:hover {
+  background-color: #38a169; /* Darker teal on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+button:active {
+  animation: buttonClick 0.2s ease; /* Trigger click animation */
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: scale(1.05); /* Start slightly enlarged */
+  }
+  50% {
+    transform: scale(0.95); /* Shrink slightly */
+  }
+  100% {
+    transform: scale(1); /* Return to normal size */
+  }
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #4a5568; /* Dark gray for footer text */
+  font-size: 0.9em; /* Smaller footer text */
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px); /* Start slightly below */
+    opacity: 0; /* Start invisible */
+  }
+  100% {
+    transform: translateY(0); /* Move to original position */
+    opacity: 1; /* Fully visible */
+  }
+}

@@ -1,0 +1,378 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif; /* Friendly and clean */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f0f8ff; /* Soft muted blue for relaxation */
+  color: #333333; /* Dark gray for easy readability */
+  line-height: 1.6;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: center; /* Keep logo on the left and nav centered */
+  align-items: center;
+  padding: 20px;
+  background-color: #b3d4a8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+  transform: scale(1.1); /* Subtle zoom on hover */
+}
+
+/* Hides the navigation bar */
+.hide-navbar {
+  display: none;
+}
+
+nav {
+  flex-grow: 1; /* Allow nav to grow and take available space */
+  display: flex;
+  justify-content: center; /* Center the nav links */
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Keep the list items in a row */
+  gap: 25px; /* Space between items */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  justify-content: center;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px; /* Adjust to give space for the line */
+  transition: color 0.3s ease-in-out;
+}
+
+nav a.active {
+  color: #48bb78; /* Change color for the active link */
+  font-weight: bold; /* Make the active link bold */
+  border-bottom: 2px solid #48bb78; /* Add an underline effect */
+}
+
+nav a:hover {
+  color: #6b7280; /* Slight darkening on hover */
+}
+
+/* Line Animation on Hover */
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0; /* Position the line at the bottom of the link */
+  width: 0; /* Start with zero width */
+  height: 2px; /* Line height */
+  background-color: #48bb78; /* Line color */
+  transition: width 0.4s ease-in-out; /* Smooth transition for hover in/out */
+}
+
+nav a:hover::after {
+  width: 100%; /* Expand the line to full width on hover */
+}
+
+/* Updated Dropdown Menu Styles */
+nav ul li .dropdown-content {
+  display: none; /* Initially hidden */
+  position: absolute;
+  top: 100%; /* Position directly below the menu */
+  left: 0; /* Align with the left side */
+  background-color: #e6eaf8; /* Light lavender background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Slight shadow for a modern look */
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-10px); /* Start slightly above */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade and slide-in */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 0; /* Space inside the dropdown */
+  white-space: nowrap; /* Prevent line breaks in dropdown items */
+}
+
+/* Show dropdown when parent li is hovered */
+nav ul li:hover .dropdown-content {
+  display: block; /* Show dropdown */
+  opacity: 1;
+  animation: slideDown 0.4s ease forwards; /* Apply slide-down animation */
+}
+
+/* Dropdown animation */
+@keyframes slideDown {
+  0% {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Dropdown items */
+.dropdown-content li {
+  padding: 10px 20px; /* Add padding for more clickable area */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdown-content li a {
+  text-decoration: none;
+  color: #333333;
+  display: block; /* Make the whole area clickable */
+  font-size: 16px;
+  padding: 10px 0; /* Ensure padding around the text */
+}
+
+.dropdown-content li:hover {
+  background-color: #ffd1a9; /* Muted peach hover effect */
+}
+
+.dropdown-content li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-content li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 10px 0;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.breadcrumb li {
+  margin-right: 10px;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: #38a169; /* Teal color */
+}
+
+.breadcrumb li.active {
+  color: #333333; /* Darker color for the active breadcrumb */
+  font-weight: bold;
+}
+
+
+/* yo bhanda tala edit garne */
+
+/* Card Container Styles */
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.take-test-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.take-test-button:hover {
+  background-color: #45a049;
+}
+
+/* Pop-up Effect on Hover */
+.card:hover {
+  transform: translateY(-10px); /* Moves card upwards */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+
+/* General Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.modal-content h3 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-content p {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.modal-content label {
+  font-size: 1.1em;
+  margin-right: 20px;
+  color: #555;
+}
+
+.modal-content input[type="radio"] {
+  margin-right: 10px;
+}
+
+.modal-content button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  width: 50%;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #45a049;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+}
+
+/* Animation for Modal Pop-up */
+@keyframes slide-down {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Improved Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form p {
+  font-weight: bold;
+  color: #444;
+}
+
+form label {
+  margin-left: 20px;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.1em;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* CSS for fading in the test result */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+
+
+

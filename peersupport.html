@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Library - Mind Sphere</title>
+    <link rel="stylesheet" href="peer.css"> <!-- Link to your CSS file -->
+    <style>
+        /* Notification Styles */
+        .notification {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Position from bottom */
+            right: 20px; /* Position from right */
+            background-color: #48bb78; /* Matching website color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding around text */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            z-index: 1000; /* Ensure it's on top */
+            transition: opacity 0.3s ease; /* Fade-in effect */
+            opacity: 0; /* Start invisible */
+        }
+
+        .notification.show {
+            display: block; /* Show when triggered */
+            opacity: 1; /* Fully visible */
+        }
+    </style>
+    <script>
+        // Function to show a notification message when the form is submitted
+        function showSubmissionMessage(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const notification = document.getElementById('notification');
+            notification.classList.add('show'); // Show the notification
+
+            // Remove the notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show'); // Hide the notification
+            }, 3000);
+        }
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="./photo/mindsphere.png" alt="Mind Sphere Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html" class="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Services</a>
+                    <ul class="dropdown-content">
+                        <li><a href="./informationhub.html">Information Hub</a></li>
+                        <li><a href="./selfassesment.html">Self Assessment</a></li>
+                        <li><a href="#">Anonymous Peer Support</a></li>
+                    </ul>
+                </li>
+                <li><a href="./support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Anonymous Peer Support Section -->
+    <main>
+        <div class="content">
+            <h1 class="highlight-heading">Anonymous Peer Support</h1>
+            <p>Connect with others and share your experiences in a safe environment.</p>
+
+            <h2 class="highlight-heading">Welcome to Anonymous Peer Support</h2>
+            <p>Our peer support group offers a safe space for individuals to share their experiences and feelings. Here, you can connect with others who understand your struggles.</p>
+            
+            <h3 class="highlight-heading">How It Works</h3>
+            <p>You can join discussions, ask questions, and share your story anonymously. Below are some topics often discussed:</p>
+            <ul class="support-list">
+                <li><strong>Anxiety Management</strong>: Share tips and experiences on coping with anxiety.</li>
+                <li><strong>Dealing with Depression</strong>: Discuss strategies for managing depressive symptoms.</li>
+                <li><strong>OCD Challenges</strong>: Connect with others facing obsessive-compulsive disorder.</li>
+                <li><strong>Bipolar Disorder Support</strong>: Share insights and support for mood management.</li>
+                <li><strong>General Mental Health</strong>: A safe space for all mental health discussions.</li>
+            </ul>
+
+            <h3 class="highlight-heading">Join Us</h3>
+            <p>If you’re interested in joining our peer support group, please fill out the form below:</p>
+            <form onsubmit="showSubmissionMessage(event)"> <!-- Call showSubmissionMessage function on form submission -->
+                <label for="name">Your Name (Optional):</label><br>
+                <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+                <label for="message">Your Message:</label><br>
+                <textarea id="message" name="message" rows="4" placeholder="Share your thoughts..."></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Notification Message -->
+    <div id="notification" class="notification">
+        Your message has been submitted!
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Mind Sphere. All rights reserved.</p>
+    </footer>
+</body>
+</html>
